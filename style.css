@@ -133,9 +133,10 @@ html, body {
 .contact-section {
     text-align: left;
     background-color: var(--white);
-    padding: 16px 20px;
+    padding: 20px 24px;
     border-radius: 8px;
-    border-left: 4px solid var(--primary-yellow);
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
 }
 
