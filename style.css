@@ -85,15 +85,15 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 40px;
-    overflow: hidden;
+    padding: 20px 40px;
+    overflow-y: auto;
 }
 
 .content-wrapper {
     max-width: 600px;
     width: 100%;
     text-align: center;
+    margin: auto 0;
 }
 
 .status-badge {
@@ -112,37 +112,38 @@ html, body {
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-black);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .description {
     font-size: 16px;
     color: var(--gray-medium);
-    line-height: 1.8;
-    margin-bottom: 24px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .divider {
     width: 60px;
     height: 3px;
     background-color: var(--primary-yellow);
-    margin: 24px auto;
+    margin: 20px auto;
 }
 
 /* ===== Contact Section ===== */
 .contact-section {
     text-align: left;
     background-color: var(--white);
-    padding: 20px 24px;
+    padding: 16px 20px;
     border-radius: 8px;
     border-left: 4px solid var(--primary-yellow);
+    margin-bottom: 20px;
 }
 
 .contact-title {
     font-size: 16px;
     font-weight: 700;
     color: var(--primary-black);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .contact-item {
@@ -177,13 +178,14 @@ html, body {
 /* ===== Canva Section ===== */
 .canva-section {
     text-align: center;
+    margin-top: 20px;
 }
 
 .canva-title {
     font-size: 14px;
     font-weight: 600;
     color: var(--gray-dark);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .canva-embed {
