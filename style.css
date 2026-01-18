@@ -28,6 +28,7 @@ html, body {
     display: flex;
     height: calc(100vh - 40px);
     width: 100vw;
+    overflow: hidden;
 }
 
 /* ===== Left Panel ===== */
@@ -86,7 +87,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     padding: 20px 40px;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .content-wrapper {
@@ -133,47 +134,56 @@ html, body {
 .contact-section {
     text-align: left;
     background-color: var(--white);
-    padding: 20px 24px;
+    padding: 16px 20px;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
-    margin-bottom: 20px;
 }
 
 .contact-title {
     font-size: 16px;
     font-weight: 700;
     color: var(--primary-black);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px 16px;
 }
 
 .contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-.contact-item:last-child {
-    margin-bottom: 0;
+.contact-item-full {
+    grid-column: 1 / -1;
 }
 
 .contact-label {
     font-weight: 600;
     color: var(--gray-dark);
-    min-width: 70px;
-    margin-right: 12px;
+    display: block;
+    margin-bottom: 3px;
 }
 
 .contact-item a {
     color: var(--gray-medium);
     text-decoration: none;
     transition: color 0.2s ease;
+    word-break: break-word;
 }
 
 .contact-item a:hover {
     color: var(--primary-black);
     text-decoration: underline;
+}
+
+.contact-item span:not(.contact-label) {
+    color: var(--gray-medium);
+    display: block;
 }
 
 /* ===== Canva Section ===== */
@@ -193,11 +203,12 @@ html, body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: 40%;
+    padding-top: 35%;
     background-color: var(--white);
     border-radius: 8px;
+    border: 1px solid #e0e0e0;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .canva-embed iframe {
@@ -233,7 +244,7 @@ html, body {
     .left-panel {
         width: 100%;
         min-width: unset;
-        padding: 24px 20px;
+        padding: 20px;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
@@ -261,21 +272,32 @@ html, body {
     }
 
     .right-panel {
-        padding: 24px 20px;
-        justify-content: flex-start;
+        padding: 20px;
         overflow-y: auto;
     }
 
+    .content-wrapper {
+        margin: 0;
+    }
+
     .main-title {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .description {
-        font-size: 14px;
+        font-size: 15px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-item:nth-child(3) {
+        grid-column: 1 / -1;
     }
 
     .canva-embed {
-        padding-top: 50%;
+        padding-top: 45%;
     }
 
     .footer {
@@ -308,7 +330,7 @@ html, body {
     }
 
     .right-panel {
-        padding: 20px 16px;
+        padding: 16px;
     }
 
     .content-wrapper {
@@ -321,8 +343,8 @@ html, body {
     }
 
     .main-title {
-        font-size: 22px;
-        margin-bottom: 12px;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
     .description {
@@ -335,26 +357,35 @@ html, body {
     }
 
     .contact-section {
-        padding: 16px;
+        padding: 14px 16px;
     }
 
     .contact-title {
         font-size: 14px;
-    }
-
-    .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 13px;
         margin-bottom: 10px;
     }
 
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .contact-item {
+        font-size: 12px;
+    }
+
+    .contact-item-full {
+        grid-column: 1;
+    }
+
     .contact-label {
+        font-size: 12px;
         margin-bottom: 2px;
     }
 
     .canva-title {
         font-size: 13px;
+        margin-bottom: 8px;
     }
 
     .canva-embed {
@@ -383,6 +414,14 @@ html, body {
     .description {
         font-size: 12px;
     }
+
+    .contact-item {
+        font-size: 11px;
+    }
+
+    .contact-label {
+        font-size: 11px;
+    }
 }
 
 /* ===== Landscape Mode for Mobile ===== */
@@ -393,10 +432,10 @@ html, body {
     }
 
     .left-panel {
-        width: 200px;
-        min-width: 200px;
+        width: 180px;
+        min-width: 180px;
         flex-direction: column;
-        padding: 16px;
+        padding: 12px;
     }
 
     .logo-section {
@@ -405,41 +444,80 @@ html, body {
     }
 
     .logo-circle {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         margin: 0 0 8px 0;
     }
 
     .brand-name {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .brand-subtitle {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .right-panel {
-        padding: 16px;
+        padding: 12px;
         overflow-y: auto;
     }
 
+    .status-badge {
+        font-size: 9px;
+        padding: 4px 10px;
+    }
+
     .main-title {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .description {
-        font-size: 12px;
+        font-size: 11px;
+        margin-bottom: 12px;
     }
 
     .divider {
-        margin: 12px auto;
+        margin: 10px auto;
+        width: 50px;
+        height: 2px;
+    }
+
+    .contact-section {
+        padding: 10px 12px;
+    }
+
+    .contact-title {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 12px;
+    }
+
+    .contact-item {
+        font-size: 10px;
+    }
+
+    .contact-label {
+        font-size: 10px;
+    }
+
+    .canva-title {
+        font-size: 12px;
+        margin-bottom: 6px;
     }
 
     .canva-embed {
-        padding-top: 35%;
+        padding-top: 30%;
     }
 
     .footer {
         height: 28px;
+    }
+
+    .footer p {
+        font-size: 9px;
     }
 }
